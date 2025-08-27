@@ -30,4 +30,15 @@ export class UserService {
   async getUsers(){
     return await this.userModel.find()
   }
+
+  async deleteUser(param:string){
+
+        try{
+            const user=await this.userModel.findByIdAndDelete({_id:param})
+            return user;
+        }catch(err){
+            throw new InternalServerErrorException(err);
+        }
+
+  }
 }
