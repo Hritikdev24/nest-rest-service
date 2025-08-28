@@ -17,4 +17,7 @@ export class TokenDto {
   })
   @IsNotEmpty({ message: 'userId is required' })
   userId: string;
+
+  @IsNotEmpty()
+  email:string;
 }

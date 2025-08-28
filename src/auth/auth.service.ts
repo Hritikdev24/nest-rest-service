@@ -29,12 +29,12 @@ export class AuthService {
     
     const accessToken =  this.jwtService.sign(userData, {
       secret: 'Hritik@11',
-      expiresIn: '2m',
+      expiresIn: '15m',
     });
 
     const refreshToken =  this.jwtService.sign(userData, {
       secret: 'Hritik@11',
-      expiresIn: '5m',
+      expiresIn: '7d',
     });
 
     return { accessToken, refreshToken };

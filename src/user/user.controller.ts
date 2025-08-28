@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, UseGuards,Req } from '@nestjs/common';
 import { UserService } from './user.service';
 import { Post } from '@nestjs/common';
 import { CreateUserDto } from './user-dto/userDto';
@@ -6,6 +6,8 @@ import { Authorization } from 'src/authorization/authorization.guard';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiParam, ApiBody } from '@nestjs/swagger';
 import { User } from './user-entity/userSchema';
 import { ApiResponseDto, ErrorResponseDto } from '../common/dto/api-response.dto';
+import { RolesGuard } from 'src/role/role.guard';
+import { Role } from 'src/role/role.decorator';
 
 @ApiTags('user')
 @Controller('user')
@@ -29,7 +31,8 @@ export class UserController {
   return this.userService.register(userData);
   }
 
- @UseGuards(Authorization)
+ @UseGuards(Authorization,RolesGuard)
+ @Role("admin")
   @Get("/all-user")
   @ApiOperation({ summary: 'Get all users', description: 'Retrieve all users (requires authorization)' })
   @ApiResponse({ 
@@ -48,7 +51,9 @@ export class UserController {
     type: ErrorResponseDto
   })
   @ApiBearerAuth()
-  getAllUser(){
+  getAllUser(@Req() req){
+
+
     return this.userService.getUsers()
   }
 

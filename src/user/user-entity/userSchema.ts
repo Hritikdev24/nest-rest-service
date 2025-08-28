@@ -27,7 +27,7 @@ export class User {
     example: 'user',
     type: String 
   })
-  @Prop()
+  @Prop({required: true,default:'user' })
   role: string;
 
   @ApiProperty({ 

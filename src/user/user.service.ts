@@ -21,7 +21,7 @@ export class UserService {
 
     // Create and save user
     try {
-      const user = await this.userModel.create({ email, password });
+      const user = await this.userModel.create(createUserDto);
       return user;
     } catch (err) {
       throw new InternalServerErrorException(err);
