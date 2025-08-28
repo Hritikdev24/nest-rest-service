@@ -96,3 +96,72 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+# NestJS Mongoose API
+
+A RESTful API built with NestJS and Mongoose, featuring user authentication and authorization.
+
+## Features
+
+- User registration and authentication
+- JWT-based authentication with refresh tokens
+- Role-based authorization
+- MongoDB integration with Mongoose
+- Comprehensive API documentation with Swagger
+
+## Installation
+
+```bash
+npm install
+```
+
+## Running the app
+
+```bash
+# development
+npm run start
+
+# watch mode
+npm run start:dev
+
+# production mode
+npm run start:prod
+```
+
+## API Documentation
+
+This project includes comprehensive Swagger documentation. Once the application is running:
+
+1. Open your browser and navigate to: `http://localhost:3000/api/docs`
+2. The Swagger UI will display all available endpoints with:
+   - Request/response schemas
+   - Authentication requirements
+   - Example values
+   - Response codes
+   - Interactive testing capabilities
+
+## API Endpoints
+
+### Authentication (`/api/auth`)
+- `POST /api/auth/login` - User login (requires authentication)
+- `POST /api/auth/refresh` - Refresh JWT token
+
+### User Management (`/api/user`)
+- `POST /api/user/register` - Register new user
+- `GET /api/user/all-user` - Get all users (requires authorization)
+- `DELETE /api/user/:id` - Delete user by ID (requires authorization)
+
+## Authentication
+
+The API uses JWT tokens for authentication:
+- Include the `Authorization` header with `Bearer <token>` for protected endpoints
+- Use the refresh token endpoint to get new access tokens
+
+## Technologies Used
+
+- NestJS
+- MongoDB with Mongoose
+- Passport.js for authentication
+- JWT for token management
+- Swagger for API documentation
+- Class-validator for request validation
