@@ -14,7 +14,7 @@ import { join } from 'path';
     AuthModule,
     OrderModule ,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../', 'public',"images"), // Path to static folder
+      rootPath: join(__dirname, '../', 'public'),
       serveRoot: '/images', // Optional: all files will be available under /static/*
     }),
   

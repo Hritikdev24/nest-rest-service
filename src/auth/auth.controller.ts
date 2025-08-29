@@ -34,7 +34,8 @@ export class AuthController {
       "seven.jpg",
       "eight.jpg",
       "nine.jpg",
-      "ten.jpg"
+      "ten.jpg",
+      "vibhu.jpg"
     ];
     
   }
