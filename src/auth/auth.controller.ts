@@ -1,7 +1,7 @@
 import { Controller, Req, Res, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginDto } from './login-dto/loginDto';
-import { Body, Post } from '@nestjs/common';
+import { Body, Post ,Get} from '@nestjs/common';
 import { Authenticate } from 'src/authenticate/authenticate.guard';
 import { Response } from 'express';
 import {
@@ -20,6 +20,25 @@ import {
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
+
+
+  @Get("/images")
+  getAllResources(){
+    return [
+      "one.jpg",
+      "two.jpg",
+      "three.jpg",
+      "four.jpg",
+      "five.jpg",
+      "six.jpg",
+      "seven.jpg",
+      "eight.jpg",
+      "nine.jpg",
+      "ten.jpg"
+    ];
+    
+  }
+
 
   @UseGuards(Authenticate)
   @Post('login')

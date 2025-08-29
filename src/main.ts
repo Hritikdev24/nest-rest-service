@@ -13,7 +13,10 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.useGlobalFilters(new AllExceptionsFilter());
   app.useGlobalInterceptors(new SuccessResponseInterceptor() )
-
+  app.enableCors({
+    origin: ["http://localhost:3000", "https://react-auto-deploys.onrender.com"],
+    credentials: true,
+  });
   // Swagger configuration
   const config = new DocumentBuilder()
     .setTitle('NestJS Mongoose API')
