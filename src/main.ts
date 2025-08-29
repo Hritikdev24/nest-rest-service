@@ -14,7 +14,7 @@ async function bootstrap() {
   app.useGlobalFilters(new AllExceptionsFilter());
   app.useGlobalInterceptors(new SuccessResponseInterceptor() )
   app.enableCors({
-    origin: ["http://localhost:3000", "https://react-auto-deploys.onrender.com"],
+    origin: ["http://localhost:3000", "https://react-auto-deploys.onrender.com","https://next-auto-deploy.onrender.com"],
     credentials: true,
   });
   // Swagger configuration
