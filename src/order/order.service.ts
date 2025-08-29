@@ -15,9 +15,32 @@ export class OrderService {
   ) {}
 
   async createOrder(orderData: OrderDto) {
-    console.log("order data",orderData);
+ 
     const newOrder = await this.orderModel.create(orderData);
     return newOrder;
+  }
+
+  async buyNow(orderData:OrderDto){
+
+    const {productId}=orderData;
+
+    const isPresent=await this.orderModel.findOne({productId:productId});
+     if(isPresent){
+       
+      return {
+        isPresent:true
+      }
+     }else{
+       const newOrder=await this.orderModel.create(orderData);
+
+       return {
+        isPresent:false,
+        newOrder:newOrder
+       }
+
+       
+     }
+
   }
 
   async makePayment(paymentData:PaymentDto) {  // use DTO here

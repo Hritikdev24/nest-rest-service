@@ -10,6 +10,12 @@ export class OrderDto {
   @IsNotEmpty({ message: 'productName is required' })
   productName: string;
 
+  
+  @ApiProperty({ description: 'ProductId', example: 'Wireless Mouse' })
+  @IsNotEmpty({ message: 'productId is required' })
+  productId: string;
+
+
   @ApiProperty({ description: 'Quantity of product', example: 2, type: Number })
   @IsNotEmpty({ message: 'quantity is required' })
   quantity: number;

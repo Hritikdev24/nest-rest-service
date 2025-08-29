@@ -13,6 +13,11 @@ export class Order{
     @Prop({required:true})
     productName:string;
 
+    
+    @ApiProperty({ description: 'Product Id', example: 'Wireless Mouse' })
+    @Prop({required:true})
+    productId:string;
+
     @ApiProperty({ description: 'Quantity ordered', example: 2, type: Number })
     @Prop({required:true})
     quantity:number;

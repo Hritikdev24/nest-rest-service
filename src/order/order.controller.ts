@@ -27,6 +27,16 @@ export class OrderController {
     return this.orderService.createOrder(orderPayload);
   }
 
+  @Post("/buy-now")
+  buyNow(@Req() req, @Body() orderData:OrderDto){
+    const orderPayload = {
+      ...orderData,
+      userId: req.user.userId,
+    };
+
+    return this.orderService.buyNow(orderPayload);
+  }
+
   @Post('/make-payment')
   @ApiOperation({ summary: 'Make payment', description: 'Make a payment for the current user' })
   @ApiBody({ type: PaymentDto })
