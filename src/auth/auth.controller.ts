@@ -41,11 +41,11 @@ export class AuthController {
   }
 
   @Get("/preview")
-previewRedirect(@Res() res: Response, @Query('title') title?: string, @Query('desc') desc?: string) {
+previewRedirect() {
 
   // Dummy meta data (fallback if query not provided)
-  const ogTitle = title || "MyNicks Building – Premium Doors";
-  const ogDesc = desc || "Explore the finest door collections with high-quality design.";
+  const ogTitle =  "MyNicks Building – Premium Doors";
+  const ogDesc =   "Explore the finest door collections with high-quality design.";
   const ogImage = "https://stg.mynicksbuilding.com/gallery/sku_images/original/CL-23-14.jpg";
 
   // The URL where the user will actually land
