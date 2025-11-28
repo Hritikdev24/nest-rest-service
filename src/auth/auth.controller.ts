@@ -41,7 +41,7 @@ export class AuthController {
   }
 
   @Get("/preview")
-previewRedirect() {
+previewRedirect(@Res() res: Response) {
 
   // Dummy meta data (fallback if query not provided)
   const ogTitle =  "MyNicks Building – Premium Doors";
