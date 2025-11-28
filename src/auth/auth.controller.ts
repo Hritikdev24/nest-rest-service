@@ -45,8 +45,8 @@ previewRedirect(@Res() res: Response) {
 
   // Dummy meta data (fallback if query not provided)
   const ogTitle =  "MyNicks Building – Premium Doors";
-  const ogDesc =   "Explore the finest door collections with high-quality design.";
-  const ogImage = "https://stg.mynicksbuilding.com/gallery/sku_images/original/CL-23-14.jpg";
+  const ogDesc =   "This door is designed with a timeless elegance that suits both classic and modern homes. Made from premium materials, it delivers exceptional strength and a refined appearance";
+  const ogImage = "https://stg.mynicksbuilding.com/gallery/sku_images/small/AC401-101_Frst_Sml.jpg";
 
   // The URL where the user will actually land
   const redirectUrl = "https://angular.mynicksbuilding.com/";
@@ -62,6 +62,8 @@ previewRedirect(@Res() res: Response) {
         <meta property="og:description" content="${ogDesc}" />
         <meta property="og:image" content="${ogImage}" />
         <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:url" content="${redirectUrl}" />
 
         <!-- Twitter Card -->
