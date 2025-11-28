@@ -40,6 +40,51 @@ export class AuthController {
     
   }
 
+  @Get("/preview")
+previewRedirect(@Res() res: Response, @Query('title') title?: string, @Query('desc') desc?: string) {
+
+  // Dummy meta data (fallback if query not provided)
+  const ogTitle = title || "MyNicks Building – Premium Doors";
+  const ogDesc = desc || "Explore the finest door collections with high-quality design.";
+  const ogImage = "https://stg.mynicksbuilding.com/gallery/sku_images/original/CL-23-14.jpg";
+
+  // The URL where the user will actually land
+  const redirectUrl = "https://angular.mynicksbuilding.com/";
+
+  const html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <!-- OG Tags for WhatsApp / LinkedIn / FB -->
+        <meta property="og:title" content="${ogTitle}" />
+        <meta property="og:description" content="${ogDesc}" />
+        <meta property="og:image" content="${ogImage}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="${redirectUrl}" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+
+        <title>${ogTitle}</title>
+
+        <!-- Auto Redirect to Angular CSR -->
+        <script>
+          window.location.href = "${redirectUrl}";
+        </script>
+    </head>
+    <body>
+    Redirecting…
+    </body>
+    </html>
+  `;
+
+  res.setHeader('Content-Type', 'text/html');
+  return res.send(html);
+}
+
+
 
   @UseGuards(Authenticate)
   @Post('login')
