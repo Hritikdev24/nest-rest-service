@@ -73,7 +73,7 @@ previewRedirect(@Res() res: Response) {
 
         <!-- Auto Redirect to Angular CSR -->
         <script>
-          window.location.href = "${redirectUrl}";
+          // window.location.href = "${redirectUrl}";
         </script>
     </head>
     <body>
